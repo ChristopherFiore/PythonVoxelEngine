@@ -6,16 +6,16 @@ class ShaderProgram:
         self.ctx = app.ctx
         self.player = app.player
         #------Shaders------
-        self.quad = self.get_program(shader_name='quad')
+        self.chunck= self.get_program(shader_name='chunck')
         #-------------------
         self.set_uniforms_on_init()
 
     def set_uniforms_on_init(self):
-        self.quad['m_proj'].write(self.player.m_proj)
-        self.quad['m_model'].write(glm.mat4())
+        self.chunck['m_proj'].write(self.player.m_proj)
+        self.chunck['m_model'].write(glm.mat4())
 
     def update(self):
-        self.quad['m_view'].write(self.player.m_view)
+        self.chunck['m_view'].write(self.player.m_view)
 
     def get_program(self, shader_name):
         with open(f'shaders/{shader_name}.vert') as file:
