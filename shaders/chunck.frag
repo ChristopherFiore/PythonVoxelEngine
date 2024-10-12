@@ -11,11 +11,6 @@ in vec3 voxel_color;
 in vec2 uv;
 
 void main() {
-    vec3 tex_col = texture(u_texture_0, uv).rgb;
-    tex_col = pow(tex_col, gamma);
-
-    tex_col.rgb *= voxel_color;
-    
-    tex_col = pow(tex_col, inv_gamma);
-    fragColor = vec4(tex_col, 1);
+    vec3 voxel_color = vec3(1.0, 0.0, 0.0); // Use red color for testing
+    fragColor = vec4(voxel_color, 1.0); // Output voxel color
 }
